@@ -5,4 +5,33 @@
 
 body {
   background-color: peachpuff;
+  font-family: "Jost", sans-serif;
+}
+
+h1 {
+  font-family: "Bungee Shade", cursive;
+}
+
+#result {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+#result img {
+  width: 100%;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#result h3 {
+  margin: 10px 0 5px 0;
+}
+#result p {
+  margin-bottom: 5px;
+}
+#result i {
+  margin-left: 8px;
+}
+#result i:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
