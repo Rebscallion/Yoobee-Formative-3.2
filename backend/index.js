@@ -59,6 +59,5 @@ app.post(`/addProject`, (req, res) => {
 app.get('/allProjects', (req, res) => {
     Project.find().then(result => {
         res.send(result)
-        console.log("Pushing all projects to frontend.");
     })
 })
