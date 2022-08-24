@@ -1,3 +1,5 @@
+@import 'modules/variables';
+
 * {
     padding: 0;
     margin: 0;
@@ -6,22 +8,29 @@
 body {
     background-color: peachpuff;
     font-family: 'Jost', sans-serif;
+    display: flex;
 }
 
-h1 {
-    font-family: 'Bungee Shade', cursive;
+nav {
+    height: 100%;
+    width: 263px;
+
+    h1 {
+        font-family: 'Bungee Shade', cursive;
+    }
 }
+
 
 
 #result {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
 
     img {
+        object-fit: contain;
         width: 100%;
-        height: 300px;
-        object-fit: cover;
+        height: 100%;
     }
 
     h3 {
@@ -38,5 +47,70 @@ h1 {
 
     i:hover {
         cursor: pointer;
+    }
+
+    .result-container {
+        overflow: hidden;
+        width: 97%;
+        height: 550px;
+        padding: 10px;
+
+        .modal-container {
+            display: none;
+        }
+    }
+
+    .result-container:first-child {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        background-color: $green;
+    }
+
+    .result-container:nth-child(2) {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        background-color: $purple;
+    }
+
+    .result-container:nth-child(3) {
+        grid-column: 3/4;
+        grid-row: 1/2;
+        background-color: $pink;
+    }
+
+    .result-container:nth-child(4) {
+        grid-column: 1/2;
+        grid-row: 2/3;
+        background-color: $yellow;
+    }
+
+    .result-container:nth-child(5) {
+        grid-column: 2/3;
+        grid-row: 2/3;
+        background-color: $blue;
+    }
+
+    .result-container:nth-child(6) {
+        grid-column: 3/4;
+        grid-row: 2/3;
+        background-color: $yellow;
+    }
+
+    .result-container:nth-child(7) {
+        grid-column: 1/2;
+        grid-row: 3/4;
+        background-color: $pink;
+    }
+
+    .result-container:nth-child(8) {
+        grid-column: 2/3;
+        grid-row: 3/4;
+        background-color: $green;
+    }
+
+    .result-container:nth-child(9) {
+        grid-column: 3/4;
+        grid-row: 3/4;
+        background-color: $purple;
     }
 }

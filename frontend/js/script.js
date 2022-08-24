@@ -21,8 +21,10 @@ let renderProjects = (projects) => {
       result.innerHTML += `
         <div class="result-container">
         <img src="${item.image_url}" alt="${item.name}">
+        <div class="modal-container">
         <h3>${item.name}</h3>
-        <p>${item.project}</p> 
+        <p>${item.project}</p>
+        </div>
         </div>
         `;
     });
