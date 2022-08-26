@@ -22,50 +22,62 @@
                 <li>Home</li>
                 <li>Artists</li>
                 <li>Contact</li>
+                <li id="project-button"><i class="bi bi-plus-circle"></i></li>
             </ul>
+        </div>
+        <div id="tools">
+            <form id="add-project-form" action="javascript:void(0)">
+                <label for="name-input">Name: </label>
+                <input id="name-input" name="name-input" type="text">
+                <label for="project-input">Project: </label>
+                <input id="project-input" name="project-input" type="number">
+                <label for="image-url-input">Image URL</label>
+                <input id="image-url-input" name="image-url-input" type="text">
+                <button id="submit-button">Submit New Project</i></button>
+            </form>
         </div>
     </nav>
 
     <div id="result"></div>
 
-<footer>
-    <div class="footer-main-container">
-        <div class="link-container">
-            <a href="#/" class="footer-links-main">Contact Us</a>
-            <ul id="footer-link-ul">
-            <li><a href="#" class="footer-links">Postal Address</a></li>
-            <li><a href="#" class="footer-links">Email Address</a></li>
-            <li><a href="#" class="footer-links">Contact Phone</a></li>
-            <li><a href="#" class="footer-links">More Details</a></li>
-            </ul>
-        </div>
-        <div class="link-container">
-            <a href="#/" class="footer-links-main">About</a>
-            <ul id="footer-link-ul-2">
-            <li><a href="#" class="footer-links">Artists</a></li>
-            <li><a href="#" class="footer-links">Yoobee</a></li>
-            <li><a href="#" class="footer-links">General</a></li>
-            <li><a href="#" class="footer-links">Privacy Policy</a></li>
-            </ul>
-        </div>
-        <div class="subscribe-container">
-            <a href="#/" class="subscribe-header">Subcribe To Our Newsletter</a>
-            <div class="input-container">
-                <input type="text" placeholder="youremailaddress@mail.com" name="email" required>
-                <button type="button" class="second-button">Subscribe</button>
+    <footer>
+        <div class="footer-main-container">
+            <div class="link-container">
+                <a href="#/" class="footer-links-main">Contact Us</a>
+                <ul id="footer-link-ul">
+                    <li><a href="#" class="footer-links">Postal Address</a></li>
+                    <li><a href="#" class="footer-links">Email Address</a></li>
+                    <li><a href="#" class="footer-links">Contact Phone</a></li>
+                    <li><a href="#" class="footer-links">More Details</a></li>
+                </ul>
             </div>
-            <div class="socials-container">
-                <i class="bi bi-facebook"></i>
-                <i class="bi bi-instagram"></i>
-                <i class="bi bi-twitter"></i>
-                <i class="bi bi-linkedin"></i>
+            <div class="link-container">
+                <a href="#/" class="footer-links-main">About</a>
+                <ul id="footer-link-ul-2">
+                    <li><a href="#" class="footer-links">Artists</a></li>
+                    <li><a href="#" class="footer-links">Yoobee</a></li>
+                    <li><a href="#" class="footer-links">General</a></li>
+                    <li><a href="#" class="footer-links">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="subscribe-container">
+                <a href="#/" class="subscribe-header">Subcribe To Our Newsletter</a>
+                <div class="input-container">
+                    <input type="text" placeholder="youremailaddress@mail.com" name="email" required>
+                    <button type="button" class="second-button">Subscribe</button>
+                </div>
+                <div class="socials-container">
+                    <i class="bi bi-facebook"></i>
+                    <i class="bi bi-instagram"></i>
+                    <i class="bi bi-twitter"></i>
+                    <i class="bi bi-linkedin"></i>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="footer-copyright-container">
-        <p>Copyright 2022 Crudentials</p>
-    </div>
-</footer>
+        <div class="footer-copyright-container">
+            <p>Copyright 2022 Crudentials</p>
+        </div>
+    </footer>
 
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
