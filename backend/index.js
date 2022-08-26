@@ -61,3 +61,29 @@ app.get('/allProjects', (req, res) => {
         res.send(result)
     })
 })
+
+// =====================
+//     DELETE Method
+// ====================
+
+app.delete('/deleteProject/:id', (req, res) => {
+    const projectId = req.params.id;
+    console.log("The following project was deleted:")
+    console.log(projectId);
+    Project.findById(projectId, (err, project) => {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log(project);
+        Project.deleteOne({ _id: projectId })
+          .then(() => {
+            console.log("Success! Actually deleted from mongoDB")
+            res.send(project)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      }
+  
+    });
+  });

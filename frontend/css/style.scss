@@ -1,5 +1,6 @@
 @import 'modules/variables';
 @import 'modules/footer';
+@import 'modules/addFunc';
 
 * {
     padding: 0;
@@ -44,70 +45,71 @@ nav {
     img {
         object-fit: contain;
         width: 100%;
-        height: 100%;
-    }
-
-    h3 {
-        margin: 10px 0 5px 0;
-    }
-
-    p {
-        margin-bottom: 5px;
-    }
-
-    i {
-        margin-left: 8px;
+        height: 90%;
     }
 
     i:hover {
         cursor: pointer;
     }
+
+    .modal-container {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: inherit;
 }
 
     .result-container {
         overflow: hidden;
         width: 93%;
         height: 347px;
-        padding: 60px 15px;
-
-        .modal-container {
-            display: none;
-        }
+        width: 93%;
+        padding: 45px 15px;
+        text-align: center;
     }
+}
 
-    .result-container:first-child {
-        grid-column: 1/2;
-        grid-row: 1/3;
-        background-color: $green;
-    }
+.result-container {
+    overflow: hidden;
+    width: 93%;
+    height: 347px;
+    padding: 60px 15px;
+    position: relative;
+}
 
-    .result-container:nth-child(2) {
-        background-color: $purple;
-    }
+.result-container:first-child {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    background-color: $green;
+}
 
-    .result-container:nth-child(3) {
-        background-color: $pink;
-    }
+.result-container:nth-child(2) {
+    background-color: $purple;
+}
 
-    .result-container:nth-child(5) {
-        background-color: $blue;
-    }
+.result-container:nth-child(3) {
+    background-color: $pink;
+}
 
-    .result-container:nth-child(6) {
-        background-color: $yellow;
-    }
+.result-container:nth-child(5) {
+    background-color: $blue;
+}
 
-    .result-container:nth-child(7) {
-        background-color: $pink;
-    }
+.result-container:nth-child(6) {
+    background-color: $yellow;
+}
 
-    .result-container:nth-child(9) {
-        background-color: $purple;
-    }
+.result-container:nth-child(7) {
+    background-color: $pink;
+}
 
-    .result-container:nth-child(10) {
-        background-color: $green;
-    }
+.result-container:nth-child(9) {
+    background-color: $purple;
+}
+
+.result-container:nth-child(10) {
+    background-color: $green;
 }
 
 @media only screen and (min-width: 768px) {
