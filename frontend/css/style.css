@@ -84,9 +84,11 @@ nav #site-links ul li {
   width: 100%;
   height: 90%;
 }
+
 #result i:hover {
   cursor: pointer;
 }
+
 #result .modal-container {
   display: none;
   position: absolute;
@@ -99,7 +101,20 @@ nav #site-links ul li {
   text-align: center;
 }
 
-.result-container {
+#result h3 {
+  margin: 10px 0 5px 0;
+}
+#result p {
+  margin-bottom: 5px;
+}
+#result i {
+  margin-left: 8px;
+}
+#result i:hover {
+  cursor: pointer;
+}
+
+#result .result-container {
   overflow: hidden;
   width: 93%;
   height: 347px;
