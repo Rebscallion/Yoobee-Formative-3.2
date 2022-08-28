@@ -182,6 +182,55 @@ footer .footer-copyright-container {
   display: none;
 }
 
+#editModal .modal-content {
+  text-align: center;
+}
+
+#editModal .modal-content .modal-header .modal-title {
+  font-family: 'Bungee Shade', cursive;
+  font-size: 28px;
+}
+
+#editModal .modal-content .modal-body img {
+  width: 100%;
+  height: 350px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+#editModal .modal-content .modal-body #projectForm {
+  margin-top: 30px;
+}
+
+#editModal .modal-content .modal-body #projectForm label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+#editModal .modal-content .modal-body #projectForm input {
+  width: 90%;
+  padding: 4px;
+}
+
+#editModal .modal-content .modal-footer #updateProject {
+  color: black;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid black;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#editModal .modal-content .modal-footer #updateProject:hover {
+  background-color: #FF84CB;
+}
+
+@media only screen and (min-width: 1024px) {
+  #editModal .modal-content .modal-body #projectForm label {
+    font-size: 17px;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -246,33 +295,18 @@ nav #site-links ul li {
   top: 0;
   left: 0;
   background-color: inherit;
+}
+
+#result .result-container {
+  overflow: hidden;
+  width: 93%;
   height: 347px;
   width: 93%;
   padding: 45px 15px;
   text-align: center;
 }
 
-#result h3 {
-  margin: 10px 0 5px 0;
-}
-
-#result p {
-  margin-bottom: 5px;
-}
-
-#result i {
-  margin-left: 8px;
-}
-
-#result i:hover {
-  cursor: pointer;
-}
-
-
 .result-container {
-
-#result .result-container {
-
   overflow: hidden;
   width: 93%;
   height: 347px;
@@ -280,17 +314,9 @@ nav #site-links ul li {
   position: relative;
 }
 
-
-.result-container .modal-container {
-  display: none;
-}
-
 .result-container:first-child {
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
-
-.result-container:first-child {
-
   grid-column: 1/2;
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
@@ -316,6 +342,10 @@ nav #site-links ul li {
 
 .result-container:nth-child(7) {
   background-color: #FF84CB;
+}
+
+.result-container:nth-child(10) {
+  background-color: #BEF6C9;
 }
 
 .result-container:nth-child(9) {
