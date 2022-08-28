@@ -15,31 +15,66 @@
 </head>
 
 <body>
+    <!-- nav bar  -->
     <nav>
-        <h1>C</h1>
-        <div id="site-links">
-            <ul>
-                <li>Home</li>
-                <li>Artists</li>
-                <li>Contact</li>
-                <li id="project-button"><i class="bi bi-plus-circle"></i></li>
-            </ul>
-        </div>
-        <div id="tools">
+        <h1>CRUD</h1>
+        <i class="bi bi-list drop_down_button" id="drop-down-button"></i>
+    </nav>
+    <!-- dropdown  -->
+    <div id="drop-down-menu" class="drop_down_menu">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#artists">Artists</a></li>
+            <li><a href="#about">Contact</a></li>
+            <li id="project-button"><i class="bi bi-plus-circle"></i></li>
+        </ul>
+        <div id="tools" class="tools">
             <form id="add-project-form" action="javascript:void(0)">
-                <label for="name-input">Name: </label>
+                <label for="name-input">Name</label>
                 <input id="name-input" name="name-input" type="text">
-                <label for="project-input">Project: </label>
+                <label for="project-input">Project</label>
                 <input id="project-input" name="project-input" type="number">
                 <label for="image-url-input">Image URL</label>
                 <input id="image-url-input" name="image-url-input" type="text">
                 <button id="submit-button">Submit New Project</i></button>
             </form>
         </div>
-    </nav>
-
+    </div>
     <div id="result"></div>
+    <!-- content start  -->
+    <div id="about" class="about">
+        <div class="section1">
+            <h2>about</h2>
+        </div>
+        <!-- <div class="section2">
+            <p>06 555 6667</p>
+            <p>crudentialteam@crudential.co.nz</p>
+            <label for="email">enter yout emal</label>
+            <input type="email" name="email" id="email">
+            <input type="text" placeholder="send us a message" name="email" id="email-msg">
+            <button>send message</button>
+        </div> -->
+        <div class="section2">
+            <div class="team item1">
+                <h4>reb</h4>
+                <p>designer</p>
 
+            </div>
+            <div class="team item2">
+                <h4>holly</h4>
+                <p>designer</p>
+
+            </div>
+            <div class="team item3">
+                <h4>joji</h4>
+                <p>designer</p>
+
+            </div>
+        </div>
+    </div>
+    <!-- contact end  -->
+
+    <!-- footer start   -->
     <footer>
         <div class="footer-main-container">
             <div class="link-container">
@@ -79,7 +114,7 @@
             <p>Copyright 2022 Crudentials</p>
         </div>
     </footer>
-
+    <!-- footer end  -->
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
