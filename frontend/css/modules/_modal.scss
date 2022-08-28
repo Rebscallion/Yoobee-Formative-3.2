@@ -1,0 +1,30 @@
+.modal-container.open {
+
+    .modal-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h3 {
+            font-size: 30px;
+            font-family: 'Bungee Shade', cursive;
+            line-height: 45px;
+            padding-bottom: 10px;
+        }
+
+        p {
+            padding-bottom: 8px;
+            font-size: 20px;
+        }
+
+        .bi-x {
+            font-size: 20px;
+            font-style: normal;
+        }
+
+        .bi-trash,
+        .bi-pencil-square {
+            font-size: 25px;
+        }
+    }
+}

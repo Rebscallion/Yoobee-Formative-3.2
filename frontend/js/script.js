@@ -81,10 +81,12 @@ let renderProjects = (projects) => {
         <div class="result-container" id="${item._id}" data-index="${index}">
         <img src="${item.image_url}" alt="${item.name}">
         <div class="modal-container">
-        <i class="bi bi-x" data-index="${index}"></i>
+        <div class="modal-content">
+        <i class="bi bi-x" data-index="${index}">Close</i>
         <h3>${item.name}</h3>
         <p>${item.project}</p>
         <i class="bi bi-trash delete-button"></i>
+        </div>
         </div>
         </div>
         `;
@@ -96,15 +98,14 @@ let renderProjects = (projects) => {
     container[i].onclick = () => {
       let modal = document.getElementsByClassName("modal-container");
       let projectId = container[i].dataset.index;
-      modal[projectId].style.display = "block";
+      modal[projectId].classList.toggle("open");
     };
   }
   for (let i = 0; i < exit.length; i++) {
     exit[i].onclick = () => {
       let modal = document.getElementsByClassName("modal-container");
       let projectId = exit[i].dataset.index;
-      console.log(modal[projectId]);
-      modal[projectId].toggleAttribute = "none";
+      modal[projectId].classList.toggle("open");
     };
   };
 };

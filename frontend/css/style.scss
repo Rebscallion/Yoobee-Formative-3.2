@@ -1,6 +1,6 @@
 @import 'modules/variables';
 @import 'modules/footer';
-@import 'modules/addFunc';
+@import 'modules/modal';
 
 * {
     padding: 0;
@@ -10,6 +10,10 @@
 body {
     font-family: 'Jost', sans-serif;
     overflow-x: hidden;
+}
+
+.open {
+    display: block;
 }
 
 nav {
@@ -35,6 +39,10 @@ nav {
             margin-top: 10px;
         }
     }
+
+    #tools {
+        display: none;
+    }
 }
 
 #result {
@@ -57,8 +65,15 @@ nav {
         position: absolute;
         top: 0;
         left: 0;
+        height: 100%;
+        width: 100%;
         background-color: inherit;
-}
+    }
+
+    .modal-container.open {
+        display: flex;
+        justify-content: center;
+    }
 
     .result-container {
         overflow: hidden;
@@ -105,9 +120,9 @@ nav {
 }
 
 
-    .result-container:nth-child(10) {
-        background-color: $green;
-    }
+.result-container:nth-child(10) {
+    background-color: $green;
+}
 
 .result-container:nth-child(9) {
     background-color: $purple;
@@ -140,6 +155,7 @@ nav {
 
     #result {
         width: 80%;
+
         .result-container {
             width: 96%;
             padding: 45px 15px;
@@ -161,7 +177,7 @@ nav {
             overflow: hidden;
             width: 90.5%;
             height: 550px;
-            padding: 50px 30px;
+            padding: 50px 36px;
         }
     }
 }
