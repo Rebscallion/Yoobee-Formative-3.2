@@ -33,6 +33,7 @@ let showAllProjects = () => {
 // ==================
 add.onclick = () => {
   addForm.classList.toggle('active');
+  console.log("clicked");
 };
 
 // this will submit the add data to mongoDB and add it to its arraay and then it will be added to the page 
@@ -95,7 +96,8 @@ let collectDeleteButtons = () => {
   let deleteButtonsArray = document.getElementsByClassName("delete-button");
   for (let i = 0; i < deleteButtonsArray.length; i++) {
     deleteButtonsArray[i].onclick = () => {
-      let currentId = deleteButtonsArray[i].parentNode.parentNode.id;
+      let currentId = deleteButtonsArray[i].parentNode.parentNode.parentNode.id;
+      console.log(currentId);
       deleteProject(currentId);
     };
   }
@@ -114,7 +116,7 @@ let renderProjects = (projects) => {
         <img src="${item.image_url}" alt="${item.name}">
         <div class="modal-container">
         <div class="modal-content">
-        <i class="bi bi-x" data-index="${index}">Close</i>
+        <i class="bi bi-x" data-index="${index}"></i>
         <h3>${item.name}</h3>
         <p>${item.project}</p>
         <i class="bi bi-trash delete-button"></i>
@@ -123,9 +125,7 @@ let renderProjects = (projects) => {
         </div>
         `;
   });
-
   collectDeleteButtons();
-
   let container = document.getElementsByClassName("result-container");
   let exit = document.getElementsByClassName("bi-x");
   // open delete modal
