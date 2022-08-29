@@ -14,7 +14,6 @@ const addForm = document.getElementById("tools");
 //show all projects
 // ==================
 
-
 let showAllProjects = () => {
   $.ajax({
     type: "GET",
@@ -29,14 +28,14 @@ let showAllProjects = () => {
   });
 };
 // ==================
-// add item function 
+// add item function
 // ==================
 add.onclick = () => {
-  addForm.classList.toggle('active');
+  addForm.classList.toggle("active");
   console.log("clicked");
 };
 
-// this will submit the add data to mongoDB and add it to its arraay and then it will be added to the page 
+// this will submit the add data to mongoDB and add it to its arraay and then it will be added to the page
 submit.onclick = () => {
   console.log("clicked submit");
   $.ajax({
@@ -56,7 +55,7 @@ submit.onclick = () => {
     },
   });
 };
-console.log('connected');
+console.log("connected");
 // ==================
 // dropdown
 // ==================
@@ -67,8 +66,8 @@ const dropDownMenu = document.getElementById("drop-down-menu");
 console.log(dropDownBtn);
 
 dropDownBtn.onclick = () => {
-  dropDownMenu.classList.toggle('active')
-}
+  dropDownMenu.classList.toggle("active");
+};
 
 // ==================
 // delete projects
@@ -114,19 +113,15 @@ let renderProjects = (projects) => {
     result.innerHTML += `
         <div class="result-container" id="${item._id}" data-index="${index}">
         <img src="${item.image_url}" alt="${item.name}">
-        <div class="modal-container">
-          <i class="bi bi-x" data-index="${index}"></i>
-          <h3>${item.name}</h3>
-          <p>${item.project}</p>
-          <i class="bi bi-trash delete-button"></i>
-          <i class="bi bi-pencil-square edit-button" data-bs-toggle="modal" data-bs-target="#editModal"></i>
-        <div class="modal-content">
-        <i class="bi bi-x" data-index="${index}"></i>
-        <h3>${item.name}</h3>
-        <p>${item.project}</p>
-        <i class="bi bi-trash delete-button"></i>
-        </div>
-        </div>
+          <div class="modal-container">
+            <div class="modal-content">
+              <i class="bi bi-x" data-index="${index}"></i>
+              <h3>${item.name}</h3>
+              <p>${item.project}</p>
+              <i class="bi bi-trash delete-button"></i>
+              <i class="bi bi-pencil-square edit-button" data-bs-toggle="modal" data-bs-target="#editModal"></i>
+            </div>
+          </div>
         </div>
         `;
   });
@@ -227,7 +222,8 @@ let collectEditButtons = () => {
   // this will loop over every edit button
   for (let i = 0; i < editButtonsArray.length; i++) {
     editButtonsArray[i].onclick = () => {
-      let currentId = editButtonsArray[i].parentNode.parentNode.id;
+      let currentId = editButtonsArray[i].parentNode.parentNode.parentNode.id;
+      console.log(currentId);
       // edit project based on the id
       populateEditModal(currentId);
     };
