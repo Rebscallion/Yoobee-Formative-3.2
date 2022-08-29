@@ -4,3 +4,32 @@ $green: #BEF6C9;
 $yellow: #FFF595;
 $pink: #FF84CB;
 $purple: #A18AFF;
+$white: #FFFFFF;
+$black: #000000;
+
+// mixins
+
+@mixin flexRow {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin flexRowReverse {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+@mixin flexCol {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flexColReverse {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+@mixin flexWrap {
+    display: flex;
+    flex-wrap: wrap;
+}

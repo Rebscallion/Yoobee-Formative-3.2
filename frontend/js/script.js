@@ -8,8 +8,12 @@ const imageURLInput = document.getElementById("image-url-input");
 //-----buttons-----
 const add = document.getElementById("project-button");
 const submit = document.getElementById("submit-button");
-
 const addForm = document.getElementById("tools");
+
+// ==================
+//show all projects
+// ==================
+
 
 let showAllProjects = () => {
   $.ajax({
@@ -24,13 +28,16 @@ let showAllProjects = () => {
     },
   });
 };
-
+// ==================
+// add item function 
+// ==================
 add.onclick = () => {
-  addForm.style.display = "block";
+  addForm.classList.toggle('active');
 };
 
+// this will submit the add data to mongoDB and add it to its arraay and then it will be added to the page 
 submit.onclick = () => {
-  console.log("clicked");
+  console.log("clicked submit");
   $.ajax({
     url: `http://localhost:3000/addProject`,
     type: "POST",
@@ -48,6 +55,23 @@ submit.onclick = () => {
     },
   });
 };
+console.log('connected');
+// ==================
+// dropdown
+// ==================
+//dropdown menu variables
+const dropDownBtn = document.getElementById("drop-down-button");
+const dropDownMenu = document.getElementById("drop-down-menu");
+
+console.log(dropDownBtn);
+
+dropDownBtn.onclick = () => {
+  dropDownMenu.classList.toggle('active')
+}
+
+// ==================
+// delete projects
+// ==================
 
 let deleteProject = (projectId) => {
   console.log(projectId);
@@ -63,6 +87,10 @@ let deleteProject = (projectId) => {
   });
 };
 
+// ==================
+// add delete buttons to items via id
+// ==================
+
 let collectDeleteButtons = () => {
   let deleteButtonsArray = document.getElementsByClassName("delete-button");
   for (let i = 0; i < deleteButtonsArray.length; i++) {
@@ -72,6 +100,10 @@ let collectDeleteButtons = () => {
     };
   }
 };
+
+// ==================
+//render all projects in #result
+// ==================
 
 let renderProjects = (projects) => {
   console.log("The render project function is running");
@@ -86,26 +118,35 @@ let renderProjects = (projects) => {
           <p>${item.project}</p>
           <i class="bi bi-trash delete-button"></i>
           <i class="bi bi-pencil-square edit-button" data-bs-toggle="modal" data-bs-target="#editModal"></i>
+        <div class="modal-content">
+        <i class="bi bi-x" data-index="${index}">Close</i>
+        <h3>${item.name}</h3>
+        <p>${item.project}</p>
+        <i class="bi bi-trash delete-button"></i>
+        </div>
         </div>
         </div>
         `;
   });
+
   collectDeleteButtons();
+
   let container = document.getElementsByClassName("result-container");
   let exit = document.getElementsByClassName("bi-x");
+  // open delete modal
   for (let i = 0; i < container.length; i++) {
     container[i].onclick = () => {
       let modal = document.getElementsByClassName("modal-container");
       let projectId = container[i].dataset.index;
-      modal[projectId].style.display = "block";
+      modal[projectId].classList.toggle("open");
     };
   }
+  //close delete modal
   for (let i = 0; i < exit.length; i++) {
     exit[i].onclick = () => {
       let modal = document.getElementsByClassName("modal-container");
       let projectId = exit[i].dataset.index;
-      console.log(modal[projectId]);
-      modal[projectId].toggleAttribute = "none";
+      modal[projectId].classList.toggle("open");
     };
   }
   collectEditButtons();
