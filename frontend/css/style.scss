@@ -2,6 +2,7 @@
 @import 'modules/footer';
 @import 'modules/modal';
 @import 'modules/addFunc';
+@import 'modules/editModal';
 @import 'modules/contact';
 
 * {
@@ -127,10 +128,9 @@ nav {
     }
 
     .result-container {
+        width: 100%;
         overflow: hidden;
-        width: 93%;
         height: 347px;
-        width: 93%;
         padding: 45px 15px;
         text-align: center;
     }
@@ -224,7 +224,6 @@ nav {
         }
 
         .result-container {
-            width: 96%;
             padding: 45px 15px;
         }
 
