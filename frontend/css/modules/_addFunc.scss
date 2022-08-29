@@ -20,17 +20,16 @@
             display: block;
             border: none;
             height: 40px;
-            width: 300px;
             padding: 2px;
 
         }
 
         button {
             border: none;
-            padding: 20px 67px;
+            padding: 20px 15px;
             font-size: 18px;
             font-weight: 600;
-            margin: 10px 0;
+            margin: 20px 0;
             background-color: $white;
             color: black;
         }
@@ -40,50 +39,4 @@
 
 #tools.active {
     display: block;
-}
-
-@media only screen and (min-width: 1024px) {
-    #tools {
-        display: none;
-        position: absolute;
-        top: 180px;
-        left: 197px;
-        width: 400px;
-
-        #add-project-form {
-            @include flexCol;
-            align-items: center;
-            justify-content: center;
-
-            label {
-                display: block;
-                padding: 5px;
-                font-size: 20px;
-            }
-
-            input {
-                display: block;
-                border: none;
-                height: 40px;
-                width: 300px;
-                padding: 2px;
-
-            }
-
-            button {
-                border: none;
-                padding: 20px 67px;
-                font-size: 18px;
-                font-weight: 600;
-                margin: 10px 0;
-                background-color: $white;
-                color: black;
-            }
-
-        }
-    }
-
-    #tools.active {
-        display: block;
-    }
 }
