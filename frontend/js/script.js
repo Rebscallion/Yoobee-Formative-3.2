@@ -16,7 +16,6 @@ const addForm = document.getElementById("tools");
 //show all projects
 // ==================
 
-
 let showAllProjects = () => {
   $.ajax({
     type: "GET",
@@ -45,14 +44,18 @@ dropDownBtn.onclick = () => {
 }
 
 // ==================
-// add item function 
+// add item function
 // ==================
 add.onclick = () => {
   addForm.classList.toggle('active');
   console.log('clicked add fiunction')
+
+  addForm.classList.toggle("active");
+  console.log("clicked");
+
 };
 
-// this will submit the add data to mongoDB and add it to its arraay and then it will be added to the page 
+// this will submit the add data to mongoDB and add it to its arraay and then it will be added to the page
 submit.onclick = () => {
   console.log("clicked submit");
   $.ajax({
@@ -61,7 +64,7 @@ submit.onclick = () => {
     data: {
       image_url: imageURLInput.value,
       name: nameInput.value,
-      project: projectInput.value
+      project: projectInput.value,
     },
     success: () => {
       console.log("A new project was added.");
@@ -72,6 +75,21 @@ submit.onclick = () => {
     },
   });
 };
+
+console.log("connected");
+// ==================
+// dropdown
+// ==================
+//dropdown menu variables
+const dropDownBtn = document.getElementById("drop-down-button");
+const dropDownMenu = document.getElementById("drop-down-menu");
+
+console.log(dropDownBtn);
+
+dropDownBtn.onclick = () => {
+  dropDownMenu.classList.toggle("active");
+};
+
 
 // ==================
 // delete projects
@@ -99,7 +117,8 @@ let collectDeleteButtons = () => {
   let deleteButtonsArray = document.getElementsByClassName("delete-button");
   for (let i = 0; i < deleteButtonsArray.length; i++) {
     deleteButtonsArray[i].onclick = () => {
-      let currentId = deleteButtonsArray[i].parentNode.parentNode.id;
+      let currentId = deleteButtonsArray[i].parentNode.parentNode.parentNode.id;
+      console.log(currentId);
       deleteProject(currentId);
     };
   }
@@ -116,20 +135,19 @@ let renderProjects = (projects) => {
     result.innerHTML += `
         <div class="result-container" id="${item._id}" data-index="${index}">
         <img src="${item.image_url}" alt="${item.name}">
-        <div class="modal-container">
-        <div class="modal-content">
-        <i class="bi bi-x" data-index="${index}">Close</i>
-        <h3>${item.name}</h3>
-        <p>${item.project}</p>
-        <i class="bi bi-trash delete-button"></i>
-        </div>
-        </div>
+          <div class="modal-container">
+            <div class="modal-content">
+              <i class="bi bi-x" data-index="${index}"></i>
+              <h3>${item.name}</h3>
+              <p>${item.project}</p>
+              <i class="bi bi-trash delete-button"></i>
+              <i class="bi bi-pencil-square edit-button" data-bs-toggle="modal" data-bs-target="#editModal"></i>
+            </div>
+          </div>
         </div>
         `;
   });
-
   collectDeleteButtons();
-
   let container = document.getElementsByClassName("result-container");
   let exit = document.getElementsByClassName("bi-x");
   // open delete modal
@@ -147,11 +165,96 @@ let renderProjects = (projects) => {
       let projectId = exit[i].dataset.index;
       modal[projectId].classList.toggle("open");
     };
-  };
+  }
+  collectEditButtons();
+};
+
+// =========================================
+//             EDIT FUNCTIONLITY
+// =========================================
+
+let handleEditFunctionality = (project, id) => {
+  let projectName = document.getElementById("projectName");
+  let projectAuthorName = document.getElementById("projectAuthorName");
+  let imageurl = document.getElementById("imageUrl");
+  let imagePreview = document.getElementById("image-preview");
+
+  projectName.value = project.project;
+  projectAuthorName.value = project.name;
+  imageurl.value = project.image_url;
+  imagePreview.innerHTML = `
+  <img src="${project.image_url}" alt="${projectName}">
+  `;
+  //console.log(`The ID was passed in ${id}`)
+  // ===============================
+  //        EDIT CLICK LISTENER
+  // ===============================
+
+  $("#updateProject").click(function () {
+    event.preventDefault();
+    let projectId = id;
+    let projectAuthorName = document.getElementById("projectAuthorName").value;
+    let projectName = document.getElementById("projectName").value;
+    let imageurl = document.getElementById("imageUrl").value;
+    console.log(projectId, projectAuthorName, projectName, imageurl);
+
+    $.ajax({
+      url: `http://localhost:3000/updateProject/${projectId}`,
+      type: "PATCH",
+      data: {
+        image_url: imageurl,
+        name: projectAuthorName,
+        project: projectName,
+      },
+      success: function (data) {
+        console.log(data);
+        showAllProjects();
+        $("#editModal").modal("hide");
+        $("#updateProject").off("click");
+      },
+      error: function () {
+        console.log("error: cannot update");
+      },
+    });
+  });
+};
+
+//this function will ask the backend for data relating to the coffee we clicked on to edit
+populateEditModal = (projectId) => {
+  console.log(projectId);
+  $.ajax({
+    url: `http://localhost:3000/project/${projectId}`,
+    type: "GET",
+    success: (projectData) => {
+      console.log("project was found");
+      console.log(projectData);
+      handleEditFunctionality(projectData, projectId);
+    },
+    error: (error) => {
+      console.log(error);
+    },
+  });
+};
+
+let collectEditButtons = () => {
+  // this will return an Array, but it's a slightly different one
+  // it returns HTML "nodes" instead
+  // we'll have use a regular loop to loop over these
+  let editButtonsArray = document.getElementsByClassName("edit-button");
+  // this will loop over every edit button
+  for (let i = 0; i < editButtonsArray.length; i++) {
+    editButtonsArray[i].onclick = () => {
+      let currentId = editButtonsArray[i].parentNode.parentNode.parentNode.id;
+      console.log(currentId);
+      // edit project based on the id
+      populateEditModal(currentId);
+    };
+  }
 };
 
 //-----start app-----
 showAllProjects();
+
 // ==================
 //       swiper
 // ==================
@@ -169,3 +272,5 @@ const swiper = new Swiper(".mySwiper", {
     clickable: true,
   },
 });
+=======
+
