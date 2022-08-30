@@ -44,7 +44,6 @@
 
 @media only screen and (min-width: 1024px) {
     #tools {
-        display: none;
         position: absolute;
         top: 180px;
         left: 197px;
@@ -83,7 +82,5 @@
         }
     }
 
-    #tools.active {
-        display: block;
-    }
+
 }
