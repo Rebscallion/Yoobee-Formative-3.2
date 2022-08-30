@@ -234,19 +234,6 @@ nav {
     body {
         padding: 0;
     }
-
-
-    #result {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        width: 80%;
-        // padding-left: 197px;
-
-        .result-container {
-            overflow: hidden;
-            width: 82.5%;
-            height: 567px;
-=======
     nav {
         @include flexCol;
         position: fixed;
@@ -283,6 +270,19 @@ nav {
         }
     }
 
+    #result {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 80%;
+        // padding-left: 197px;
+
+        .result-container {
+            overflow: hidden;
+            width: 82.5%;
+            height: 567px;
+        }
+
+    }
     #result {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
