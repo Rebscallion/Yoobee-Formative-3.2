@@ -13,6 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Jost:wght@300;400;700&display=swap"
         rel="stylesheet">
     <title>Formative 3.2</title>
+    <!-- swiper cdn css  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -27,7 +30,7 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#artists">Artists</a></li>
-            <li><a href="#about">Contact</a></li>
+            <li><a href="#about">About</a></li>
             <li id="project-button"><i class="bi bi-plus-circle"></i></li>
         </ul>
         <div id="tools" class="tools">
@@ -49,15 +52,13 @@
             <h2>about</h2>
         </div>
         <div class="section2">
-            <div class="team item1">
-                <h4>reb</h4>
-                <p>designer</p>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
 
-            </div>
-            <div class="team item2">
-                <h4>holly</h4>
-                <p>designer</p>
-
+                    <div class="swiper-slide item1">
+                    </div>
+                    <div class="swiper-slide item2">
+=======
   <!-- Edit Modal -->
   <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -95,6 +96,15 @@
                 <h4>joji</h4>
                 <p>designer</p>
 
+
+                    </div>
+                    <div class="swiper-slide item3">
+
+                    </div>
+                </div>
+                <div class="swiper-button-next swiper-button"></div>
+                <div class="swiper-button-prev swiper-button"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </div>
@@ -141,6 +151,9 @@
         </div>
     </footer>
     <!-- footer end  -->
+    <!-- swiper cdn js  -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

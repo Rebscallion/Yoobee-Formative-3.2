@@ -1,4 +1,6 @@
 console.log("hello");
+console.log('connected');
+
 
 // -----Inputs-----
 const projectInput = document.getElementById("project-input");
@@ -27,12 +29,30 @@ let showAllProjects = () => {
     },
   });
 };
+
+// ==================
+// dropdown
+// ==================
+//dropdown menu variables
+const dropDownBtn = document.getElementById("drop-down-button");
+const dropDownMenu = document.getElementById("drop-down-menu");
+const dropDownMenuAbout = document.getElementById("about");
+
+
+dropDownBtn.onclick = () => {
+  dropDownMenu.classList.toggle('active');
+}
+
 // ==================
 // add item function
 // ==================
 add.onclick = () => {
+  addForm.classList.toggle('active');
+  console.log('clicked add fiunction')
+
   addForm.classList.toggle("active");
   console.log("clicked");
+
 };
 
 // this will submit the add data to mongoDB and add it to its arraay and then it will be added to the page
@@ -55,6 +75,7 @@ submit.onclick = () => {
     },
   });
 };
+
 console.log("connected");
 // ==================
 // dropdown
@@ -68,6 +89,7 @@ console.log(dropDownBtn);
 dropDownBtn.onclick = () => {
   dropDownMenu.classList.toggle("active");
 };
+
 
 // ==================
 // delete projects
@@ -232,3 +254,23 @@ let collectEditButtons = () => {
 
 //-----start app-----
 showAllProjects();
+
+// ==================
+//       swiper
+// ==================
+
+const swiper = new Swiper(".mySwiper", {
+  spaceBetween: 30,
+  effect: "fade",
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+=======
+

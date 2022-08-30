@@ -1,0 +1,185 @@
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 97;
+    height: 80px;
+    width: 100%;
+    padding: 8px 0px;
+    border-bottom: 5px $black solid;
+    background-color: $white;
+    @include flexRow;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+        font-family: 'Bungee Shade', cursive;
+        font-size: 50px;
+        line-height: 60px;
+        padding-left: 20px;
+
+    }
+
+    i {
+        font-size: 50px;
+        padding-right: 10px;
+        cursor: pointer;
+
+    }
+
+}
+
+.drop_down_menu {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    z-index: 98;
+    width: 100%;
+    background-color: $white;
+    border-bottom: $black 3px solid;
+    transition: all ease .5s;
+    visibility: hidden;
+
+    ul {
+        @include flexCol;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        li {
+            width: 100%;
+            list-style: none;
+
+            a,
+            i {
+                display: block;
+                text-decoration: none;
+                color: black;
+                text-align: center;
+                padding: 10px 0;
+                font-size: 28px;
+                font-weight: 600;
+            }
+
+            a:hover,
+            i:hover {
+                background-color: $black;
+                color: $white;
+            }
+        }
+    }
+
+    #tools {
+        display: none;
+    }
+}
+
+.drop_down_menu.active {
+    visibility: visible;
+}
+
+@media only screen and (min-width: 768px) {
+    nav {
+        height: 80px;
+        width: 100%;
+        padding: 0;
+    }
+
+    .drop_down_menu {
+        top: 80px;
+    }
+
+}
+
+@media only screen and (min-width: 1024px) {
+    nav {
+        @include flexCol;
+        position: static;
+        top: 0px;
+        height: 400vh;
+        width: 19%;
+        padding: 0;
+        border: none;
+        z-index: 0;
+        // background-color: blue;
+        border-right: 2px black solid;
+
+        h1 {
+            font-size: 45px;
+            position: fixed;
+            left: 27px;
+            padding: 0;
+        }
+
+        i {
+            font-size: 40px;
+            display: none;
+        }
+
+
+
+    }
+
+    .drop_down_menu {
+        top: 80px;
+        // left: 10px;
+        visibility: visible;
+        width: 194px;
+        border: none;
+
+        ul {
+            @include flexCol;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+
+    }
+
+
+}
+
+@media only screen and (min-width: 1920px) {
+    nav {
+        @include flexCol;
+        position: static;
+        top: 0px;
+        height: 100%;
+        width: 19%;
+        padding: 0;
+        border: none;
+        z-index: 0;
+        // background-color: blue;
+        border-right: 2px black solid;
+
+        h1 {
+            font-size: 70px;
+            top: 10px;
+        }
+    }
+
+    .drop_down_menu {
+        top: 80px;
+        visibility: visible;
+        width: 263px;
+
+        ul {
+            @include flexCol;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            li {
+
+                a,
+                i {
+                    font-size: 35px;
+                }
+            }
+        }
+
+
+    }
+
+}
